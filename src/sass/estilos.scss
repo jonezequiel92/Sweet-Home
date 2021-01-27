@@ -1,0 +1,143 @@
+@import "var";
+@import "mixins";
+@import "home";
+@import "search";
+@import "cotizar";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: sans-serif;
+}
+
+
+
+.nav {
+    @include flex;
+    @include margin(5%);
+    height: 15%;
+    padding: 3%;
+    .menu__list {
+        @include flex;
+        list-style: none;
+    }
+    .menu__list li a {
+        display: inline-block;
+        margin: 10px;
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .menu__list li a:hover{
+        text-decoration: underline;
+    }
+}
+
+.cards{
+    @include flex(row, space-around, center);
+    align-items: center;
+    padding:20px;
+    margin-bottom: 60px;
+}
+
+.card {
+    margin: 1%;
+    cursor: pointer;
+    img {
+        border-radius: 15px;
+    }
+    h2 {
+        color:$color-azul;
+        font-size: 2.4rem;
+        line-height: 2;
+    }
+    .card__description {
+        font-size: 1.8rem;
+        line-height: 2;
+    }
+    .card__otherDescription {
+        font-size: 1.6rem;
+        line-height: 2;
+    }
+}
+
+
+footer {
+    @include flex(column, center, center);
+    background-color: $color-azul;
+    color: white;
+    padding: 2%;  
+    .footer__logo {
+        align-self: flex-start;
+    }
+    .footer__sites {
+        margin: 2%;
+        margin-left: 6%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr;
+        gap: 8%;
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        div h3{
+            margin: 2%;;
+        }
+        div a {
+            color: white;
+            text-decoration: none;
+            margin:2%;
+            cursor: pointer;
+        }
+        div a:hover {
+            text-decoration: underline;
+        }
+        div p {
+            margin: 2%;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 768px){
+    .cards{
+        @include flex(column, space-around, center);
+    }
+    .card {
+        margin: 20px;
+    }
+    
+}
+
+
+
+
+@media screen and (min-width: 1440px){
+    body {
+        font-size: 24px;
+    }
+    .header{
+        background-image: url("../img/Header2.jpg");
+    }
+    .hero{
+        background-image: url("../img/hero2.png");
+        height: 600px;
+    }
+
+
+}

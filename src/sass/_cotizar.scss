@@ -1,0 +1,144 @@
+.search {
+    background-color: #f2f2f2;
+}
+
+
+.hero {
+    @include flex(column, center, flex-end)
+    align-items: flex-end;
+    background-image: url("../img/hero.png");
+    background-size: cover;
+    width: 100%;
+    height: 350px;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    color: $color-gris;
+    
+    div {
+        margin-right: 10%;
+        
+        h1 {
+            font-size: 4.6rem;
+            em{
+                color: $color-rojo;
+                font-weight: 600;
+                font-style: normal; 
+                line-height: 1.5;     
+            }
+        }
+        p {
+            font-size: 2.6rem;
+            line-height: 1.5;
+        }
+    }
+    
+}
+
+
+.banner {
+    margin-top: 5%;
+    @include flex(row, space-around, center);
+    .banner__text {
+        color: $color-gris;
+        width: 40%;
+        margin-left: 5%;
+        h2 {
+            font-size: 3.6rem;
+            line-height: 2;
+        }
+        p{
+            font-size: 2rem;
+            width: 80%
+        }
+    }
+    .banner__img {
+        @include flex(row, space-around , center);
+        flex-grow: 1;
+        margin: 15px;
+        .banner__img__card {
+            @include flex(column, center, center);
+            .banner__img--text {
+                @include flex(column, center, center);
+                h3 {
+                    font-size: 2rem;
+                    line-height: 1.5;
+                }
+                span {
+                    font-size: 1.4rem;
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+    
+            }
+        }
+        
+    }
+}
+
+
+.seguros {
+    @include flex(row, space-around , center);
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.cotizar {
+    background-color: white;
+}
+
+.calculadora {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    input {
+        margin-bottom: 15px;
+        height: 57px;
+        width: 624px;
+    }
+}
+
+
+
+.calculadora label{
+    margin-bottom: 15px;
+    color: $color-rojo;
+}
+
+.formaPago {
+    margin: 2%;
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    width: 511px;
+    color: white;
+    font-size: 3.2rem;
+    line-height: 2;
+    text-transform: uppercase;
+    background-color: $color-rojo;
+    .formaPago__top {
+        padding:20px;
+        h2 {
+            margin-top: 20px;
+            font-size: 3.8rem;
+            border-bottom: 1px solid white;
+        }
+        .formaPago--amarillo {
+            color: $color-amarillo;
+        }
+    }
+    .formaPago__botton {
+        padding: 20px;
+        width: 100%;
+        background-color: white;
+        .formaPago--rojo {
+            color: $color-rojo;
+        }
+        .formaPago--gris {
+            color: $color-gris;
+        }
+    }
+}
+

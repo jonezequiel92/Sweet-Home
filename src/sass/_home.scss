@@ -1,0 +1,50 @@
+.header {
+    background: no-repeat  url("../img/Header.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    .titleContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 400px;
+        color: white;
+    }
+    .form {
+        background-color: #fff;
+        // width: 980px;
+        height: 120px;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 50px;
+        gap: 12px;
+        justify-items: stretch;
+        align-items: center;
+        padding: 35px;  
+        margin-top: 35px;  
+        input,
+        button {
+        height: 50px;
+    }
+    }
+    
+.button {
+    background-color: $color-azul;
+    color: white;
+}
+
+}
+
+.main-index {
+    @include flex(column, center, center);
+    margin-top: 4%;
+    padding: 10px;
+}
+
+
+.othertext {
+    margin-top: 5%;
+    font-size: 24px;
+}
+
