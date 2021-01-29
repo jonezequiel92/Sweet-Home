@@ -1,3 +1,5 @@
+'use strict';
+
 let usuarios = [];
 let inmuebles = [];
 let publicaciones = [];
@@ -16,8 +18,8 @@ function Inmueble ( id, tipo, ambientes, dormitorios, precio, ubicacion, localid
     this.expensas = expensas;
 }
 
-let casa1 = new Inmueble("1", "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800) 
-let casa2 = new Inmueble("2", "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800) 
+let casa1 = new Inmueble("1", "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
+let casa2 = new Inmueble("2", "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
 
 inmuebles.push(casa1) 
 inmuebles.push(casa2) 
@@ -33,8 +35,7 @@ function cargarInmueble() {
     let antiguedad = parseInt(prompt("Ingrese la antigüedad"));
     let metros2 = parseFloat(prompt("Ingrese cantidad de metros cuadrados"));
     let descripcion = prompt("Ingrese una descripción");
-    let expensas = prompt ("Ingrese el valor de las expensas")
-
+    let expensas = parseFloat(prompt ("Ingrese el valor de las expensas"))
 
     return inmuebles.push(new Inmueble(id_inmueble, tipo, ambientes, dormitorios, precio, ubicacion, localidad, antiguedad, metros2, descripcion, expensas) ); 
 }
@@ -85,11 +86,11 @@ function Usuario (id, nombre, apellido, fechaNacimiento, email, telefono, vended
 }
 
 function crearUsuario() {
-    let id_usuario = Math.round(Math.random()*100000)
-    let nombre_usuario = prompt("Ingrese su Nombre: ");
-    let apellido_usuario = prompt("Ingrese su Apellido: ");
+    let id_usuario = Math.round(Math.random()*100000);
+    let nombre_usuario = prompt("Ingrese su Nombre: ").toUpperCase;
+    let apellido_usuario = prompt("Ingrese su Apellido: ").toUpperCase;
     let fechaNacimiento_usuario = prompt("Ingrese el día de su Nacimiento (dd/mm/aaaa): ");
-    let email_usuario = prompt("ingrese su email");
+    let email_usuario = prompt("ingrese su email").toUpperCase;
     let telefono_usuario = prompt("ingrese su número de teléfono: ");
     let vendedor_usuario = 0;
     let comprador_usuario = 0;
