@@ -18,11 +18,17 @@ function Inmueble ( id, tipo, ambientes, dormitorios, precio, ubicacion, localid
     this.expensas = expensas;
 }
 
-let casa1 = new Inmueble("1", "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
-let casa2 = new Inmueble("2", "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
+let casa1 = new Inmueble(1, "Departamento", 2 , 1 , 35000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
+let casa2 = new Inmueble(2, "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
+let casa3 = new Inmueble(3, "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
+let casa4 = new Inmueble(4, "Departamento", 2 , 1 , 25000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
+let casa5 = new Inmueble(5, "Departamento", 2 , 1 , 20000, "Av Juan B. Justo 365", "CABA" ,  "35", 38.8 , "Excelente departamento muy luminoso bajas expensas", 2800);
 
 inmuebles.push(casa1) 
 inmuebles.push(casa2) 
+inmuebles.push(casa3) 
+inmuebles.push(casa4) 
+inmuebles.push(casa5) 
 
 function cargarInmueble() {
     let id_inmueble = Math.round(Math.random()*100000);
@@ -71,18 +77,6 @@ function Usuario (id, nombre, apellido, fechaNacimiento, email, telefono, vended
     this.cotizar = function () {
         cotizo = 1;
     }
-    // this.crearUsuario = function() {
-    //     this.id = Math.round(Math.random()*100000)
-    //     this.nombre = prompt("Ingrese su Nombre: ");
-    //     this.apellido = prompt("Ingrese su Apellido: ");
-    //     this.fechaNacimiento = prompt("Ingrese el día de su Nacimiento (dd/mm/aaaa): ");
-    //     this.email = prompt("ingrese su email");
-    //     this.telefono = prompt("ingrese su número de teléfono: ");
-    //     this.vendedor = 0;
-    //     this.comprador = 0;
-    //     this.cotizo  = 0;
-    //     return usuarios.push(new Usuario(id, nombre, apellido, fechaNacimiento, email, telefono, vendedor, comprador, cotizo ));
-    // }
 }
 
 function crearUsuario() {
@@ -100,20 +94,53 @@ function crearUsuario() {
 }
 
 
+let verInmuebles = () => inmuebles.forEach( elemento => console.log (elemento))
+
+let filtrarInmuebles = function (){
+    let precioMax = parseFloat(prompt('Ingrese precio máximo de alquiler: '))
+    return inmuebles.filter( propiedades => propiedades.precio <= precioMax )
+
+}
+
+function borrarInmueble (id_inmueble) {
+    inmuebles.forEach( inmueble => 
+        {  if ( inmueble.id == id_inmueble) {
+                let element = inmuebles.indexOf(inmueble)
+                inmuebles.splice(element, 1); 
+            } 
+        } )
+}
+
+/**************************
+ * OBTENIENDO LOS DATOS DEL SELECT (index.html)
+ * **********************/
+// Obtener la referencia a la lista
+let lista = document.getElementById("options");
+
+// Obtener el índice de la opción que se ha seleccionado
+let indiceSeleccionado = lista.selectedIndex;
+
+// Con el índice y el array "options", obtener la opción seleccionada
+let opcionSeleccionada = lista.options[indiceSeleccionado];
+
+//Obtener el valor 
+var valorSeleccionado = opcionSeleccionada.value;
+
+
+
+
+/**************************
+ * OBTENIENDO LOS DATOS DEL FORMULARIO en pagina de seguro.html
+ * **********************/
+const descuento = 0.15;
+const tasa_anual = 0.3;
+let valor_alquiler = document.getElementById("alquiler").value;
+let valor_expensas= document.getElementById("expensas").value;
+let duracion_contrato = document.getElementById("duracion").value;
+let cantidad_cuotas = document.getElementById("cuota").value;
+let correo = document.getElementById("correo").value;
+
 function Cotizar () {
-    const descuento = 0.15;
-    const tasa_anual = 0.3;
-    let valor_alquiler;
-    let valor_expensas;
-    let duracion_contrato;
-    let cantidad_cuotas;
-    let monto_cuota;
-
-    valor_alquiler = parseFloat(prompt("Ingrese Valor del Alquiler por mes"));
-    valor_expensas = parseFloat(prompt("Ingrese Valor de las expensas por mes"));
-    duracion_contrato = parseInt(prompt("Ingrese Duración del contrato"));
-    cantidad_cuotas = parseInt(prompt("Ingrese Número de cuotas a pagar"));
-
     if( cantidad_cuotas <= 3) {
         monto_cuota = (((valor_alquiler + valor_expensas) * 1.5)  * (1 - descuento)) / 3;
     } else {

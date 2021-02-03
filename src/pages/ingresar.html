@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+
+</head>
+<body>
+    
+    <!-- Form Area Start  -->
+    <div class="form">
+        <!-- Login form start -->
+        <form class="login-form" action="index.html" method="POST">
+            <i class="fas fa-user-circle"></i>
+            <input class="user-input" type="text" name="" placeholder="Username" required>
+            <input class="user-input" type="password" name="" placeholder="password" required>
+            <div class="options-01">
+                <label class="remerber-me"> <input type="Checkbox" name="">Recuerdame</label>
+                <a href="#">Olvide mi contraseña</a>
+            </div>
+            <input class="btn" type="submit" name="" value="Ingresar">
+            <div class="options-02">
+            <p>¿No estás Registrado? <a href="#">Crear Cuenta</a></p> 
+            </div>
+        </form>
+        <!-- Login form end -->
+
+        <!-- signup form start -->
+        <form class="signup-form" action="" method="POST">
+            <i class="fas fa-user-plus"></i>
+            <input class="user-input" type="text" name="" placeholder="Username" required>
+            <input class="user-input" type="email" name="" placeholder="Email" required>
+            <input class="user-input" type="password" name="" placeholder="password" required>
+            <input class="btn" type="submit" name="" value="Registrarse">
+            <div class="options-02">
+                <p>¿Ya estás registrado? <a href="#"> Ingresar</a></p>
+            </div>
+
+        </form>
+        <!-- signup form end -->
+   </div>
+   <!-- Form area end -->
+
+    <!-- Form Area End  -->
+
+    <script type="text/javascript">
+    $('.options-02 a').click(function(){
+        $('form').animate({
+            height: "toggle", opacity: "toggle"
+        }, "slow")
+    })    
+    </script>
+ 
+    
+</body>
+</html>

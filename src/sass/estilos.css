@@ -370,6 +370,7 @@
 
 .calculadora input {
   margin-bottom: 15px;
+  padding: 1rem;
   height: 57px;
   width: 624px;
 }
@@ -417,6 +418,17 @@
 
 .formaPago .formaPago__botton .formaPago--gris {
   color: #303C4E;
+}
+
+#contizacion {
+  display: none;
+  background-color: #D0635A;
+  color: #FED287;
+  margin: 2rem;
+  text-align: center;
+  width: 100%;
+  height: 5rem;
+  line-height: 5rem;
 }
 
 * {
